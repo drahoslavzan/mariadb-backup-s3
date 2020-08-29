@@ -1,4 +1,5 @@
 FROM debian:stable
+LABEL maintainer="Drahoslav Zan <zandrahoslav@gmail.com>"
 
 WORKDIR /app
 

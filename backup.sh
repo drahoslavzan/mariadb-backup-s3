@@ -15,6 +15,8 @@ BACKUP_FILE=${BACKUP_FILE:?"BACKUP_FILE is required"}
 
 fname="/backup/$BACKUP_FILE.bz2"
 
+mkdir -p /backup
+
 echo "Dumping MYSQL database..."
 mysqldump -h"$MYSQL_HOST" -u"$MYSQL_USER" -p"$MYSQL_PASS" --single-transaction --routines --triggers --all-databases | bzip2 - > "$fname"
 
