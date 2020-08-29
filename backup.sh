@@ -21,6 +21,6 @@ echo "Dumping MYSQL database..."
 mysqldump -h"$MYSQL_HOST" -u"$MYSQL_USER" -p"$MYSQL_PASS" --single-transaction --routines --triggers --all-databases | bzip2 - > "$fname"
 
 echo "Uploading to S3..."
-aws s3 cp "$fname" "$AWS_BUCKET_DIR/"
+aws s3 cp --storage-class STANDARD_IA "$fname" "$AWS_BUCKET_DIR/"
 
 echo "Done"
